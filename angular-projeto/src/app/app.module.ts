@@ -9,11 +9,13 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule }    from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from '././service/in-memory-data.service';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService }  from '././service/in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import {JwtModule} from '@auth0/angular-jwt';
 import { LoginComponent } from './login/login.component';
+import { AuthService } from './service/auth.service';
+import { AuthGuard } from './auth.guard';
 
 export function tokenGetter(){
   return localStorage.getItem('access_token');
@@ -33,9 +35,6 @@ export function tokenGetter(){
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -44,7 +43,10 @@ export function tokenGetter(){
       }
     })
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

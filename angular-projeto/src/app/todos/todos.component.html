@@ -1,0 +1,30 @@
+<h2>My Heroes</h2>
+<ul class="todos">
+  <li *ngFor="let todo of todos">
+      <span class="badge">{{todo.id}}</span> {{todo.name}} <input type="checkbox" [(ngModel)]="todo.completed">
+    <button class="delete" title="delete hero"
+  (click)="delete(todo)">x</button>
+  </li>
+</ul>
+
+<div>
+  <label>todo name:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+<!-- 
+<div *ngIf="selectedHero">
+
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+    </label>
+  </div> -->
+
+<!-- </div> -->

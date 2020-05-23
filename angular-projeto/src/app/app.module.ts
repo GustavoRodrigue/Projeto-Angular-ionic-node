@@ -16,6 +16,7 @@ import {JwtModule} from '@auth0/angular-jwt';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './service/auth.service';
 import { AuthGuard } from './auth.guard';
+import { TodosComponent } from './todos/todos.component';
 
 export function tokenGetter(){
   return localStorage.getItem('access_token');
@@ -28,7 +29,8 @@ export function tokenGetter(){
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    LoginComponent
+    LoginComponent,
+    TodosComponent
   ],
   imports: [
     BrowserModule,

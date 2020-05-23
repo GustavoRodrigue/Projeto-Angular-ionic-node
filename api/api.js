@@ -14,7 +14,7 @@ var TODOS = [
 ];
 var USERS = [
     { 'id': 1, 'username': 'gustavo', 'password': '123' },
-    { 'id': 2, 'username': 'paul' , 'password': '123456' },
+    { 'id': 2, 'username': 'paul' , 'password': '123' }
 ];
 
 
